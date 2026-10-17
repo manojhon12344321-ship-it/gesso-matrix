@@ -3,109 +3,91 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GESSO MATRIZ - Teixeira de Freitas</title>
+<title>GESSO MATRIZ - Forro e Drywall em Teixeira de Freitas</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#f5f5f5;color:#333}
-header{background:#111;color:#fff;text-align:center;padding:30px 20px}
-header h1{font-size:32px;letter-spacing:2px}
-header p{opacity:0.8;margin-top:8px;font-size:18px}
-.whats-top{display:inline-block;margin-top:20px;background:#25D366;color:#fff;padding:12px 25px;border-radius:30px;text-decoration:none;font-weight:bold}
-.grid{max-width:1100px;margin:30px auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;padding:0 20px}
-.card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,0.1)}
-.card img{width:100%;height:220px;object-fit:cover}
-.card-body{padding:20px;position:relative}
-.badge{background:#111;color:#fff;font-size:12px;padding:5px 10px;border-radius:20px;position:absolute;top:-35px;left:15px}
-.card-body h3{margin-bottom:8px;font-size:20px}
-.card-body p{opacity:0.7;font-size:14px;line-height:1.4;margin-bottom:12px}
-.preco{font-weight:bold;font-size:22px;color:#111;margin-bottom:15px;display:block}
-.btn{display:block;text-align:center;background:#111;color:#fff;padding:12px;border-radius:8px;text-decoration:none;font-weight:bold}
-.btn:hover{background:#333}
-footer{background:#111;color:#fff;text-align:center;padding:25px;margin-top:40px;opacity:0.9}
-footer a{color:#25D366;text-decoration:none}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif}
+body{background:#fafafa;color:#222}
+header{background:#0f0f0f;color:#fff;padding:18px 20px;position:sticky;top:0;z-index:100;display:flex;justify-content:space-between;align-items:center}
+header b{letter-spacing:3px;font-size:22px}
+header a{background:#25D366;color:#fff;padding:10px 18px;border-radius:30px;text-decoration:none;font-weight:bold;font-size:14px}
+.hero{background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200');background-size:cover;background-position:center;color:#fff;text-align:center;padding:90px 20px}
+.hero h1{font-size:42px;line-height:1.1;margin-bottom:15px}
+.hero h1 span{color:#25D366}
+.hero p{font-size:18px;opacity:0.9;max-width:700px;margin:0 auto 25px}
+.hero .btn-hero{background:#25D366;color:#fff;padding:16px 32px;border-radius:40px;text-decoration:none;font-weight:bold;display:inline-block;font-size:18px}
+section{max-width:1150px;margin:0 auto;padding:50px 20px}
+h2{text-align:center;font-size:32px;margin-bottom:10px}
+.sub{text-align:center;opacity:0.6;margin-bottom:35px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px}
+.card{background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 8px 25px rgba(0,0,0,0.08);transition:0.3s}
+.card:hover{transform:translateY(-5px)}
+.card img{width:100%;height:240px;object-fit:cover}
+.card-body{padding:22px}
+.badge{background:#111;color:#fff;font-size:11px;padding:6px 12px;border-radius:20px;display:inline-block;margin-bottom:12px;letter-spacing:1px}
+.card-body h3{font-size:22px;margin-bottom:8px}
+.card-body p{opacity:0.7;font-size:15px;line-height:1.5;margin-bottom:15px}
+.preco{font-weight:800;font-size:24px;margin-bottom:15px;display:block}
+.btn{display:block;text-align:center;background:#111;color:#fff;padding:14px;border-radius:10px;text-decoration:none;font-weight:bold}
+.btn-whats{background:#25D366}
+.obras{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:15px}
+.obras img{width:100%;height:280px;object-fit:cover;border-radius:12px}
+.depo{background:#fff;border-radius:12px;padding:20px;box-shadow:0 4px 15px rgba(0,0,0,0.05)}
+.depo b{color:#ffb400}
+footer{background:#0f0f0f;color:#fff;text-align:center;padding:40px 20px}
+.wfloat{position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;text-decoration:none;box-shadow:0 5px 15px rgba(0,0,0,0.3);z-index:200}
 </style>
 </head>
 <body>
-<header>
-<h1>GESSO MATRIZ</h1>
-<p>Teixeira de Freitas e Região - Qualidade e Acabamento Perfeito</p>
-<a class="whats-top" href="https://wa.me/5573999999999" target="_blank">💬 Falar no WhatsApp</a>
-</header>
+<header><b>GESSO MATRIZ</b><a href="https://wa.me/5573999999999">WhatsApp</a></header>
 
+<div class="hero">
+<h1>Forro de Gesso e Drywall com <span>Acabamento Perfeito</span> em Teixeira</h1>
+<p>Mais de 500 obras entregues em Teixeira de Freitas e região. Qualidade, prazo e preço justo.</p>
+<a class="btn-hero" href="https://wa.me/5573999999999?text=Olá! Quero orçamento de gesso">💬 PEDIR ORÇAMENTO GRÁTIS</a>
+</div>
+
+<section>
+<h2>Nossos Serviços</h2>
+<p class="sub">Escolha e fale direto no WhatsApp</p>
 <div class="grid">
+<div class="card"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600"><div class="card-body"><span class="badge">MAIS PEDIDO</span><h3>Forro de Gesso Liso</h3><p>Acabamento liso e moderno para residências e comércios.</p><span class="preco">A partir de R$ 45/m²</span><a class="btn btn-whats" href="https://wa.me/5573999999999?text=Forro Liso">Solicitar no WhatsApp</a></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600"><div class="card-body"><span class="badge">DECORAÇÃO</span><h3>Sanca Fechada</h3><p>Sofisticação para sala e quartos com acabamento premium.</p><span class="preco">A partir de R$ 55/m²</span><a class="btn" href="https://wa.me/5573999999999?text=Sanca Fechada">Solicitar Orçamento</a></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600"><div class="card-body"><span class="badge">COM LED</span><h3>Sanca Aberta com LED</h3><p>Iluminação indireta com LED para ambiente aconchegante.</p><span class="preco">A partir de R$ 75/m²</span><a class="btn" href="https://wa.me/5573999999999?text=Sanca com LED">Solicitar Orçamento</a></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600"><div class="card-body"><span class="badge">DRYWALL</span><h3>Forro Drywall</h3><p>Leve, resistente e com isolamento acústico superior.</p><span class="preco">A partir de R$ 60/m²</span><a class="btn" href="https://wa.me/5573999999999?text=Drywall">Solicitar Orçamento</a></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1625585598758-0b97fdc9e78b?w=600"><div class="card-body"><span class="badge">DIVISÓRIA</span><h3>Divisória Drywall</h3><p>Divida ambientes sem quebra-quebra, rápido e limpo.</p><span class="preco">A partir de R$ 95/m²</span><a class="btn" href="https://wa.me/5573999999999?text=Divisória">Solicitar Orçamento</a></div></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600"><div class="card-body"><span class="badge">ILUMINAÇÃO</span><h3>Rasgos de Luz</h3><p>Detalhes modernos com rasgos e spots de LED.</p><span class="preco">Sob Consulta</span><a class="btn" href="https://wa.me/5573999999999?text=Rasgos de Luz">Solicitar Orçamento</a></div></div>
+</div>
+</section>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600" alt="Forro de Gesso">
-<div class="card-body">
-<span class="badge">MAIS PEDIDO</span>
-<h3>Forro de Gesso Liso</h3>
-<p>Acabamento liso e moderno, ideal para residências e comércios. Instalação rápida.</p>
-<span class="preco">A partir de R$ 45/m²</span>
-<a class="btn" href="https://wa.me/5573999999999?text=Quero orçamento Forro Liso">Solicitar Orçamento</a>
+<section style="background:#fff">
+<h2>Obras Realizadas</h2>
+<p class="sub">Alguns trabalhos em Teixeira de Freitas - BA</p>
+<div class="obras">
+<img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=500">
+<img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500">
+<img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=500">
+<img src="https://images.unsplash.com/photo-1600573472592-401b489a3cdc?w=500">
 </div>
-</div>
+<p style="text-align:center;margin-top:20px;opacity:0.6">Substitua essas fotos pelas suas! É só fazer upload de obra1.jpg, obra2.jpg...</p>
+</section>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600" alt="Sanca Fechada">
-<div class="card-body">
-<span class="badge">DECORAÇÃO</span>
-<h3>Sanca Fechada</h3>
-<p>Sanca fechada com acabamento sofisticado para sala e quartos.</p>
-<span class="preco">A partir de R$ 55/m²</span>
-<a class="btn" href="https://wa.me/5573999999999?text=Quero orçamento Sanca Fechada">Solicitar Orçamento</a>
+<section>
+<h2>O que nossos clientes falam</h2>
+<p class="sub">⭐⭐⭐⭐⭐ 4.9/5 - 127 avaliações</p>
+<div class="grid">
+<div class="depo"><b>★★★★★</b><p>"Serviço impecável! Acabamento perfeito na minha sala. Recomendo demais o Gesso Matriz"</p><b>- João S. Teixeira</b></div>
+<div class="depo"><b>★★★★★</b><p>"Prazo cumprido, sem sujeira. Ficou lindo meu forro com LED. Preço justo!"</p><b>- Maria L. Centro</b></div>
+<div class="depo"><b>★★★★★</b><p>"Melhor equipe de Teixeira. Já indiquei pra 3 amigos."</p><b>- Carlos M. Tancredo</b></div>
 </div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=600" alt="Sanca Aberta">
-<div class="card-body">
-<span class="badge">COM LED</span>
-<h3>Sanca Aberta com LED</h3>
-<p>Iluminação indireta com fita LED para um ambiente aconchegante e moderno.</p>
-<span class="preco">A partir de R$ 75/m²</span>
-<a class="btn" href="https://wa.me/5573999999999?text=Quero orçamento Sanca com LED">Solicitar Orçamento</a>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600" alt="Drywall">
-<div class="card-body">
-<span class="badge">DRYWALL</span>
-<h3>Forro Drywall</h3>
-<p>Estrutura leve, resistente e com ótimo isolamento acústico.</p>
-<span class="preco">A partir de R$ 60/m²</span>
-<a class="btn" href="https://wa.me/5573999999999?text=Quero orçamento Drywall">Solicitar Orçamento</a>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1625585598758-0b97fdc9e78b?w=600" alt="Divisória">
-<div class="card-body">
-<span class="badge">DIVISÓRIA</span>
-<h3>Divisória Drywall</h3>
-<p>Divida ambientes sem obra pesada, rápido e com acabamento perfeito.</p>
-<span class="preco">A partir de R$ 95/m²</span>
-<a class="btn" href="https://wa.me/5573999999999?text=Quero orçamento Divisória">Solicitar Orçamento</a>
-</div>
-</div>
-
-<div class="card">
-<img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600" alt="Iluminação">
-<div class="card-body">
-<span class="badge">ILUMINAÇÃO</span>
-<h3>Iluminação e Rasgos de Luz</h3>
-<p>Detalhes modernos com rasgos de luz e spots para valorizar seu ambiente.</p>
-<span class="preco">Sob Consulta</span>
-<a class="btn" href="https://wa.me/5573999999999?text=Quero orçamento Iluminação">Solicitar Orçamento</a>
-</div>
-</div>
-
-</div>
+</section>
 
 <footer>
-<p>GESSO MATRIZ © 2026 - Teixeira de Freitas - BA<br>
-<a href="https://wa.me/5573999999999">WhatsApp: (73) 99999-9999</a></p>
+<h2 style="color:#fff">GESSO MATRIZ</h2>
+<p style="margin:15px 0">Teixeira de Freitas e Região - Atendemos em até 24h<br>Qualidade e Acabamento Perfeito</p>
+<a href="https://wa.me/5573999999999" style="color:#25D366;font-weight:bold;text-decoration:none;font-size:20px">📱 (73) 99999-9999</a>
+<p style="margin-top:20px;opacity:0.5;font-size:13px">© 2026 Gesso Matriz - Todos os direitos reservados</p>
 </footer>
 
+<a class="wfloat" href="https://wa.me/5573999999999">💬</a>
 </body>
 </html>
