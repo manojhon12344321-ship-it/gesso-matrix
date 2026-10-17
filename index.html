@@ -10,7 +10,7 @@
 <body class="pb-28">
 <header class="sticky top-0 z-40 bg-[#f6f1eb]/95 backdrop-blur-xl border-b border-black/5">
 <div class="max-w-[520px] mx-auto px-4 py-3 flex justify-between items-center">
-<div ondblclick="openLogin()" class="cursor-pointer select-none"><span class="font-title font-black text-[22px]">GESSO <span class="gold">MATRIX</span></span></div>
+<div ondblclick="openLogin()" class="cursor-pointer select-none"><span class="font-title font-black text-[22px]">GESSO <span class="gold">MATRIX</span></span><span id="syncDot" class="ml-2 text-[9px] font-black px-2 py-0.5 rounded-full bg-yellow-100 text-yellow-700 border border-yellow-200">● SYNC</span></div>
 <a href="https://wa.me/5573999084995" class="bg-black text-white text-[13px] font-black px-5 py-3 rounded-full">73 99908-4995</a>
 </div>
 </header>
@@ -26,69 +26,50 @@
 <div class="bg-white rounded-[28px] border border-black/5 p-4 mb-5 shadow"><div class="flex items-center gap-2.5 mb-3"><div class="w-8 h-8 bg-[#f6f1eb] rounded-full flex items-center justify-center flex-shrink-0"><span class="text-[14px]">📝</span></div><div class="flex-1 min-w-0"><p class="font-black text-[12px]">DESCRIÇÃO DO PEDIDO <span class="text-[9px] font-bold text-black/40 bg-[#f6f1eb] px-2 py-1 rounded-full ml-1">OPCIONAL</span></p></div><button onclick="toggleDescricao()" class="text-[10px] font-black bg-black text-white px-3 py-2 rounded-full flex-shrink-0">+ Adicionar</button></div><div id="boxDescricao" class="hidden"><textarea id="clienteDescricao" placeholder="Ex: Quero parede 3D modelo tijolinho..." class="w-full bg-[#fcfaf7] border-2 border-black/10 rounded-[18px] p-4 text-[14px] h-[100px] focus:border-black focus:outline-none resize-none"></textarea></div></div>
 <div class="bg-white rounded-[28px] border border-black/5 p-4 mb-5 shadow"><p class="font-black text-[12px] mb-3">👤 SEUS DADOS PARA VISITA</p><div class="space-y-3"><input id="clienteNome" placeholder="👤 Seu nome completo *" class="w-full bg-[#f6f1eb] border-2 border-black/5 rounded-2xl p-4 text-[15px] font-bold"><div class="grid grid-cols-[2fr_1fr] gap-2.5"><input id="clienteRua" placeholder="🛣️ Rua / Avenida *" class="w-full bg-[#f6f1eb] border-2 border-black/5 rounded-2xl p-4 text-[15px] font-bold"><input id="clienteNumero" placeholder="🔢 Nº *" class="w-full bg-[#f6f1eb] border-2 border-black/5 rounded-2xl p-4 text-[15px] font-bold"></div><input id="clienteBairro" placeholder="🏘️ Bairro *" class="w-full bg-[#f6f1eb] border-2 border-black/5 rounded-2xl p-4 text-[15px] font-bold"></div></div>
 <div class="mb-6"><p class="font-black text-[11px] mb-2.5">💳 FORMA DE PAGAMENTO</p><div class="grid grid-cols-3 gap-2.5"><button onclick="setPag('PIX',this)" class="pag-btn border-2 border-black bg-[#fdf6e3] rounded-[16px] py-5 font-black text-[12px] flex flex-col items-center gap-1.5"><span class="text-[22px]">💠</span>PIX</button><button onclick="setPag('À VISTA',this)" class="pag-btn border-2 border-black/10 bg-white rounded-[16px] py-5 font-black text-[12px] flex flex-col items-center gap-1.5"><span class="text-[22px]">💵</span>À VISTA</button><button onclick="setPag('CARTÃO',this)" class="pag-btn border-2 border-black/10 bg-white rounded-[16px] py-5 font-black text-[12px] flex flex-col items-center gap-1.5"><span class="text-[22px]">💳</span>CARTÃO</button></div></div>
-<button onclick="enviarOrcamento()" class="w-full bg-black text-white font-black text-[15px] py-5 rounded-[18px]">GERAR ORÇAMENTO NO WHATSAPP →</button>
-</main>
-<a href="https://wa.me/5573999084995" target="_blank" class="fixed bottom-5 right-4 z-50 w-[60px] h-[60px] bg-[#25D366] rounded-full flex items-center justify-center text-white shadow">💬</a>
-
-<div id="loginModal" class="hidden fixed inset-0 z-[1000] bg-[#0a0a0a]/90 backdrop-blur-xl flex items-center justify-center p-5">
-<div class="bg-white rounded-[28px] w-full max-w-[380px] overflow-hidden shadow-[0_25px_80px_rgba(0,0,0,0.5)]">
-<div class="bg-black p-7 text-center relative">
-<button onclick="closeLogin()" class="absolute top-4 right-4 w-8 h-8 bg-white/10 rounded-full text-white/60">✕</button>
-<div class="w-16 h-16 bg-gradient-to-br from-[#c9a86a] to-[#8a6d3b] rounded-[18px] flex items-center justify-center mx-auto mb-4 shadow-lg"><span class="text-[28px]">🔐</span></div>
-<h2 class="font-title font-black text-[18px] text-white tracking-wide">GESSO MATRIX</h2>
-<p class="text-[#c9a86a] font-black text-[11px] tracking-[0.2em] mt-1">PAINEL PROFISSIONAL</p>
-<div class="mt-4 flex items-center justify-center gap-2"><div class="h-[1px] w-8 bg-white/20"></div><p class="text-[9px] text-white/40 font-bold tracking-widest">ACESSO RESTRITO</p><div class="h-[1px] w-8 bg-white/20"></div></div>
-</div>
-<div class="p-6">
-<div class="space-y-5">
-<div>
-<label class="text-[10px] font-black tracking-widest text-black/40 mb-2 block">SENHA DE ACESSO</label>
-<div class="relative">
-<input id="senhaInput" type="password" placeholder="••••••••" class="w-full bg-[#f6f1eb] border-2 border-black/5 rounded-[14px] p-4 pr-12 text-[16px] font-bold focus:border-black focus:outline-none tracking-[0.3em] text-center">
-<button onclick="toggleSenha()" type="button" id="eyeBtn" class="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 bg-white border border-black/10 rounded-full flex items-center justify-center text-[14px]">👁️</button>
-</div>
-<p id="loginErro" class="hidden mt-3 text-[11px] font-black text-red-600 text-center bg-red-50 border border-red-200 rounded-[10px] p-2.5">❌ Senha incorreta. Tente novamente.</p>
-</div>
-<button onclick="checkSenha()" class="w-full bg-black text-white font-black py-4 rounded-[14px] text-[13px] tracking-wide">ENTRAR NO PAINEL →</button>
-<p class="text-[10px] text-black/30 font-medium text-center leading-relaxed">Painel exclusivo para gestão de leads<br>e produtos da Gesso Matrix</p>
-</div>
-</div>
-</div>
-</div>
-
-<div id="devModal" class="hidden fixed inset-0 z-[999] bg-[#f8f5f0] overflow-auto">
-<div class="min-h-screen">
-<div class="bg-black text-white sticky top-0 z-10">
-<div class="max-w-[520px] mx-auto px-5 py-5">
-<div class="flex justify-between items-center">
-<div class="flex items-center gap-3">
-<div class="w-10 h-10 bg-gradient-to-br from-[#c9a86a] to-[#8a6d3b] rounded-[12px] flex items-center justify-center font-black text-[14px]">GM</div>
-<div><p class="font-title font-black text-[14px] leading-none">GESSO MATRIX</p><p class="text-[10px] text-[#c9a86a] font-black tracking-[0.15em] mt-1">ADMIN PRO • v2.0</p></div>
-</div>
-<div class="flex gap-2"><button onclick="logout()" class="bg-white/10 text-[10px] font-black px-4 py-2.5 rounded-full">SAIR</button><button onclick="closeDev()" class="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center">✕</button></div>
-</div>
-<div class="mt-5 grid grid-cols-3 gap-2.5">
-<div class="bg-white/[0.06] border border-white/10 rounded-[14px] p-3"><p class="text-[9px] text-white/40 font-black tracking-widest">LEADS</p><p id="statLeads" class="font-black text-[20px] mt-1">0</p></div>
-<div class="bg-white/[0.06] border border-white/10 rounded-[14px] p-3"><p class="text-[9px] text-white/40 font-black tracking-widest">PRODUTOS</p><p class="font-black text-[20px] mt-1">3</p></div>
-<div class="bg-[#c9a86a]/20 border border-[#c9a86a]/30 rounded-[14px] p-3"><p class="text-[9px] text-[#c9a86a] font-black tracking-widest">STATUS</p><p class="font-black text-[12px] mt-1 text-[#c9a86a]">● ONLINE</p></div>
-</div>
-</div>
-</div>
-<div class="max-w-[520px] mx-auto p-4 pb-20 space-y-5">
-<div class="bg-white rounded-[22px] border border-black/5 p-4 shadow">
-<div class="flex justify-between items-center mb-4"><div class="flex items-center gap-2.5"><div class="w-8 h-8 bg-[#f6f1eb] rounded-full flex items-center justify-center">📸</div><p class="font-black text-[13px]">Produtos Ativos</p></div><span class="text-[9px] font-black bg-black text-white px-2.5 py-1 rounded-full">3 ITENS</span></div>
-<div id="dev-lista-produtos" class="grid gap-2.5"></div>
-<button onclick="resetPara3Produtos()" class="mt-4 w-full bg-[#f6f1eb] text-black font-black py-3.5 rounded-[12px] text-[11px] border border-black/5">🔄 RESETAR PARA PADRÃO: PAREDE 3D, FORRO DRYWALL, DIVISÓRIA</button>
-</div>
-<div class="bg-white rounded-[22px] border border-black/5 p-4 shadow">
-<div class="flex justify-between items-center mb-4"><div class="flex items-center gap-2.5"><div class="w-8 h-8 bg-black rounded-full flex items-center justify-center text-white text-[12px]">👥</div><div><p class="font-black text-[13px]">Leads Salvos</p><p class="text-[10px] text-black/40 font-bold">Histórico de orçamentos</p></div></div><button onclick="limparLeads()" class="text-[9px] font-black bg-red-50 text-red-600 px-3 py-2 rounded-full border border-red-200">LIMPAR</button></div>
-<div id="lista-leads-dev" class="space-y-2.5 max-h-[400px] overflow-auto"></div>
-<div id="emptyLeads" class="hidden text-center py-10"><div class="w-12 h-12 bg-[#f6f1eb] rounded-full flex items-center justify-center mx-auto mb-3">📭</div><p class="font-black text-[12px] text-black/30">Nenhum lead ainda</p></div>
-</div>
-</div>
-</div>
-</div>
-
+<button id="btnEnviar" onclick="enviarOrcamento()" class="w-full bg-black text-white font-black text-[15px] py-5 rounded-[18px]">GERAR ORÇAMENTO NO WHATSAPP →</button>
+</main><script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-app.js";
+import { getFirestore, collection, addDoc, deleteDoc, doc, onSnapshot, query, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-firestore.js";
+const firebaseConfig = {
+  apiKey: "AIzaSyDiPFT2QHKE23buBUyoRoJgF6HN0zPDoiY",
+  authDomain: "gesso-matrix.firebaseapp.com",
+  projectId: "gesso-matrix",
+  storageBucket: "gesso-matrix.firebasestorage.app",
+  messagingSenderId: "440147517141",
+  appId: "1:440147517141:web:4add59651e5b1295618c5c"
+};
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const leadsRef = collection(db, "leads");
+let leadsCloud = [];
+const q = query(leadsRef, orderBy("createdAt", "desc"));
+onSnapshot(q, (snap)=>{
+  leadsCloud = [];
+  snap.forEach(d=> leadsCloud.push({id:d.id, ...d.data()}));
+  document.getElementById('syncDot').innerText = "● ONLINE "+leadsCloud.length;
+  document.getElementById('syncDot').className = "ml-2 text-[9px] font-black px-2 py-0.5 rounded-full bg-green-100 text-green-700 border border-green-200";
+  document.getElementById('syncStatusDev').innerText = "● ONLINE "+leadsCloud.length;
+  document.getElementById('statLeads').innerText = leadsCloud.length;
+  renderLeadsAdmin();
+}, (err)=>{
+  document.getElementById('syncDot').innerText = "● ERRO";
+  document.getElementById('syncStatusDev').innerText = "● ERRO "+err.message;
+});
+function renderLeadsAdmin(){
+  const container=document.getElementById('lista-leads-dev');
+  const empty=document.getElementById('emptyLeads');
+  if(!container) return;
+  if(leadsCloud.length===0){container.innerHTML=''; empty.classList.remove('hidden');}
+  else{
+    empty.classList.add('hidden');
+    container.innerHTML=leadsCloud.map((l)=>`<div class="bg-[#f6f1eb] border border-black/5 rounded-[14px] p-3 flex justify-between gap-3"><div class="flex-1 min-w-0"><div class="flex items-center gap-2 flex-wrap"><p class="font-black text-[12px] truncate">${l.nome||'Sem nome'}</p><span class="text-[8px] font-black bg-black text-white px-2 py-0.5 rounded-full">${l.serv||''}</span></div><p class="text-[10px] text-black/60 mt-1">📐 ${l.area||''} • ${l.comodosTxt||''}</p><p class="text-[10px] text-black/50 mt-1 truncate">📍 ${l.bairro||''} • ${l.data||''}</p></div><button onclick="window.apagarLeadCloud('${l.id}')" class="w-7 h-7 bg-white border border-black/10 rounded-full text-[10px]">✕</button></div>`).join('');
+  }
+}
+window.apagarLeadCloud = async (id)=>{ if(!confirm('Apagar lead?')) return; await deleteDoc(doc(db, "leads", id)); };
+window.limparLeads = async ()=>{ if(!confirm('Apagar TODOS?')) return; for(let l of leadsCloud){ await deleteDoc(doc(db, "leads", l.id)); } };
+window.renderLeadsAdmin = renderLeadsAdmin;
+window.getDb = ()=>db; window.getLeadsRef = ()=>leadsRef; window.addDoc = addDoc; window.serverTimestamp = serverTimestamp;
+</script>
 <script>
 const PRODUTOS_3 = [
 {id:1, nome:"PAREDE 3D", badge:"MAIS PEDIDO", foto:"parede3d.jpg", desc:"Revestimento 3D geométrico moderno"},
@@ -100,7 +81,7 @@ function renderProdutos(){const c=document.getElementById('catalogo-produtos'); 
 function selecionarServico(id,nome){servicoSelecionado=id; localStorage.setItem('gm_servico_id',id); localStorage.setItem('gm_servico_nome',nome); document.getElementById('servico').value=nome; renderProdutos();}
 function setTipo(t){tipo=t; localStorage.setItem('gm_tipo',t); document.getElementById('btn-instalacao').className=t==='instalacao'?'flex-1 bg-black text-white rounded-[20px] py-3.5 font-black text-[12px]':'flex-1 bg-[#f6f1eb] rounded-[20px] py-3.5 font-black text-[12px]'; document.getElementById('btn-reparo').className=t==='reparo'?'flex-1 bg-black text-white rounded-[20px] py-3.5 font-black text-[12px]':'flex-1 bg-[#f6f1eb] rounded-[20px] py-3.5 font-black text-[12px]'; document.getElementById('painel-reparo').classList.toggle('hidden',t!=='reparo'); document.getElementById('painel-instalacao').classList.toggle('hidden',t==='reparo');}
 function setUnidade(u){unidade=u; localStorage.setItem('gm_unidade',u); document.getElementById('btn-m2').className=u==='m2'?'flex-1 bg-black text-white rounded-[12px] py-3 font-black text-[11px]':'flex-1 bg-white text-black/60 rounded-[12px] py-3 font-black text-[11px]'; document.getElementById('btn-m3').className=u==='m3'?'flex-1 bg-black text-white rounded-[12px] py-3 font-black text-[11px]':'flex-1 bg-white text-black/60 rounded-[12px] py-3 font-black text-[11px]'; document.getElementById('alerta-m2').classList.toggle('hidden',u!=='m2'); document.getElementById('alerta-m3').classList.toggle('hidden',u!=='m3'); document.getElementById('subtitulo-medidas').innerText=u==='m2'?'NOME + LARGURA x COMPRIMENTO':'NOME + LARGURA x ALTURA x COMPRIMENTO'; renderComodos();}
-function renderComodos(){const lista=document.getElementById('listaComodos'); lista.innerHTML=comodos.map((c,i)=>`<div class="bg-[#f6f1eb] border-2 border-black/5 rounded-[16px] p-3 flex gap-2 items-start"><div class="flex-1 flex flex-col gap-2 min-w-0"><input value="${c.nome}" oninput="updateComodo(${i},'nome',this.value)" class="bg-white border-2 border-black/5 rounded-[12px] p-3.5 text-[15px] font-bold w-full focus:border-black focus:outline-none" placeholder="Nome ex: Sala"><div class="grid ${unidade==='m2'?'grid-cols-2':'grid-cols-3'} gap-2"><div class="relative"><span class="absolute -top-2 left-2 bg-white px-1.5 text-[8px] font-black text-black/40 rounded">LARGURA</span><input type="number" inputmode="decimal" value="${c.larg}" oninput="updateComodo(${i},'larg',this.value)" class="bg-white border-2 border-black/5 rounded-[12px] p-3.5 text-[15px] font-bold w-full focus:border-black focus:outline-none"></div>${unidade==='m3'?`<div class="relative"><span class="absolute -top-2 left-2 bg-white px-1.5 text-[8px] font-black text-black/40 rounded">ALTURA</span><input type="number" inputmode="decimal" value="${c.alt}" oninput="updateComodo(${i},'alt',this.value)" class="bg-white border-2 border-amber-200 rounded-[12px] p-3.5 text-[15px] font-bold w-full focus:border-amber-400 focus:outline-none"></div>`:''}<div class="relative"><span class="absolute -top-2 left-2 bg-white px-1.5 text-[8px] font-black text-black/40 rounded">COMPRIM.</span><input type="number" inputmode="decimal" value="${c.comp}" oninput="updateComodo(${i},'comp',this.value)" class="bg-white border-2 border-black/5 rounded-[12px] p-3.5 text-[15px] font-bold w-full focus:border-black focus:outline-none"></div></div></div><button onclick="removeComodo(${i})" class="w-9 h-9 bg-white border-2 border-black/10 rounded-full text-[14px] flex-shrink-0 flex items-center justify-center">✕</button></div>`).join(''); calcTotal();}
+function renderComodos(){const lista=document.getElementById('listaComodos'); lista.innerHTML=comodos.map((c,i)=>`<div class="bg-[#f6f1eb] border-2 border-black/5 rounded-[16px] p-3 flex gap-2 items-start"><div class="flex-1 flex flex-col gap-2 min-w-0"><input value="${c.nome}" oninput="updateComodo(${i},'nome',this.value)" class="bg-white border-2 border-black/5 rounded-[12px] p-3.5 text-[15px] font-bold w-full"><div class="grid ${unidade==='m2'?'grid-cols-2':'grid-cols-3'} gap-2"><div class="relative"><span class="absolute -top-2 left-2 bg-white px-1.5 text-[8px] font-black text-black/40 rounded">LARGURA</span><input type="number" inputmode="decimal" value="${c.larg}" oninput="updateComodo(${i},'larg',this.value)" class="bg-white border-2 border-black/5 rounded-[12px] p-3.5 text-[15px] font-bold w-full"></div>${unidade==='m3'?`<div class="relative"><span class="absolute -top-2 left-2 bg-white px-1.5 text-[8px] font-black text-black/40 rounded">ALTURA</span><input type="number" inputmode="decimal" value="${c.alt}" oninput="updateComodo(${i},'alt',this.value)" class="bg-white border-2 border-amber-200 rounded-[12px] p-3.5 text-[15px] font-bold w-full"></div>`:''}<div class="relative"><span class="absolute -top-2 left-2 bg-white px-1.5 text-[8px] font-black text-black/40 rounded">COMPRIM.</span><input type="number" inputmode="decimal" value="${c.comp}" oninput="updateComodo(${i},'comp',this.value)" class="bg-white border-2 border-black/5 rounded-[12px] p-3.5 text-[15px] font-bold w-full"></div></div></div><button onclick="removeComodo(${i})" class="w-9 h-9 bg-white border-2 border-black/10 rounded-full text-[14px]">✕</button></div>`).join(''); calcTotal();}
 function updateComodo(i,k,v){comodos[i][k]=k==='nome'?v:parseFloat(v)||0; localStorage.setItem('gm_comodos',JSON.stringify(comodos)); calcTotal();}
 function addComodo(){comodos.push({id:Date.now(),nome:"Quarto "+(comodos.length+1),larg:4,comp:3,alt:2.7}); localStorage.setItem('gm_comodos',JSON.stringify(comodos)); renderComodos();}
 function removeComodo(i){if(comodos.length===1) return; comodos.splice(i,1); localStorage.setItem('gm_comodos',JSON.stringify(comodos)); renderComodos();}
@@ -108,20 +89,40 @@ function calcTotal(){let total=0; let detalhe=""; comodos.forEach(c=>{const area
 function toggleNaoSei(){naoSeiMetragem=document.getElementById('naoSei').checked; document.getElementById('avisoVisita').classList.toggle('hidden',!naoSeiMetragem); document.getElementById('listaComodos').classList.toggle('opacity-30',naoSeiMetragem); calcTotal();}
 function toggleDescricao(){document.getElementById('boxDescricao').classList.toggle('hidden');}
 function setPag(p,el){pag=p; document.querySelectorAll('.pag-btn').forEach(b=>{b.classList.remove('border-black','bg-[#fdf6e3]'); b.classList.add('border-black/10','bg-white');}); el.classList.remove('border-black/10','bg-white'); el.classList.add('border-black','bg-[#fdf6e3]'); localStorage.setItem('gm_pag',p);}
-function enviarOrcamento(){const nome=document.getElementById('clienteNome').value; const rua=document.getElementById('clienteRua').value; const num=document.getElementById('clienteNumero').value; const bairro=document.getElementById('clienteBairro').value; if(!nome||!rua||!num||!bairro){alert('Preencha nome, rua, número e bairro!'); return;} const serv=document.getElementById('servico').value||localStorage.getItem('gm_servico_nome')||'FORRO DRYWALL'; let areaTxt=naoSeiMetragem?"VISITA TÉCNICA GRÁTIS":document.getElementById('areaTotal').innerText; let comodosTxt=comodos.map(c=>`${c.nome}: ${c.larg}x${unidade==='m3'?c.alt+'x':''}${c.comp}=${unidade==='m2'?(c.larg*c.comp).toFixed(2):(c.larg*c.alt*c.comp).toFixed(2)}${unidade}`).join('\n'); let desc=document.getElementById('clienteDescricao').value; let rep=document.getElementById('detalheReparo')?.value||''; let msg=`🔥 *NOVO ORÇAMENTO - GESSO MATRIX* 🔥\n\n*Serviço:* ${serv}\n*Tipo:* ${tipo} / ${unidade}\n\n📐 *MEDIDAS:*\n${comodosTxt}\n\n*TOTAL:* ${areaTxt}\n\n📝 *Descrição:* ${desc||rep||'Não informada'}\n\n👤 *Cliente:* ${nome}\n🛣️ ${rua}, ${num} - ${bairro}\n💳 *Pagamento:* ${pag}`; let leads=JSON.parse(localStorage.getItem('gm_leads')||'[]'); leads.push({nome,serv,area:areaTxt,bairro,data:new Date().toLocaleString()}); localStorage.setItem('gm_leads',JSON.stringify(leads)); window.open('https://wa.me/5573999084995?text='+encodeURIComponent(msg),'_blank');}
+async function enviarOrcamento(){
+  const nome=document.getElementById('clienteNome').value.trim();
+  const rua=document.getElementById('clienteRua').value.trim();
+  const num=document.getElementById('clienteNumero').value.trim();
+  const bairro=document.getElementById('clienteBairro').value.trim();
+  if(!nome||!rua||!num||!bairro){alert('Preencha nome, rua, número e bairro!'); return;}
+  const serv=document.getElementById('servico').value||localStorage.getItem('gm_servico_nome')||'FORRO DRYWALL';
+  let areaTxt=naoSeiMetragem?"VISITA TÉCNICA GRÁTIS":document.getElementById('areaTotal').innerText;
+  let comodosTxt=comodos.map(c=>`${c.nome}: ${c.larg}x${unidade==='m3'?c.alt+'x':''}${c.comp}=${unidade==='m2'?(c.larg*c.comp).toFixed(2):(c.larg*c.alt*c.comp).toFixed(2)}${unidade}`).join('\n');
+  let comodosResumo=comodos.map(c=>`${c.nome} ${c.larg}x${c.comp}`).join(', ');
+  let desc=document.getElementById('clienteDescricao').value.trim();
+  let rep=document.getElementById('detalheReparo')?.value||'';
+  let msg=`🔥 *NOVO ORÇAMENTO - GESSO MATRIX* 🔥\n\n*Serviço:* ${serv}\n*Tipo:* ${tipo} / ${unidade}\n\n📐 *MEDIDAS:*\n${comodosTxt}\n\n*TOTAL:* ${areaTxt}\n\n📝 *Descrição:* ${desc||rep||'Não informada'}\n\n👤 *Cliente:* ${nome}\n🛣️ ${rua}, ${num} - ${bairro}\n💳 *Pagamento:* ${pag}`;
+  const btn=document.getElementById('btnEnviar');
+  btn.innerText='SALVANDO NA NUVEM...'; btn.disabled=true;
+  try{
+    await window.addDoc(window.getLeadsRef(), { nome, rua, numero:num, bairro, serv, area:areaTxt, comodosTxt:comodosResumo, comodosDetalhado:comodosTxt, desc:desc||rep||'', tipo, unidade, pag, endereco:`${rua}, ${num} - ${bairro}`, data:new Date().toLocaleString('pt-BR'), createdAt:window.serverTimestamp() });
+    btn.innerText='✓ SALVO! ABRINDO WHATSAPP...';
+    setTimeout(()=>{ window.open('https://wa.me/5573999084995?text='+encodeURIComponent(msg),'_blank'); btn.innerText='GERAR ORÇAMENTO NO WHATSAPP →'; btn.disabled=false; },800);
+  }catch(e){ alert('Erro nuvem: '+e.message); window.open('https://wa.me/5573999084995?text='+encodeURIComponent(msg),'_blank'); btn.innerText='GERAR ORÇAMENTO NO WHATSAPP →'; btn.disabled=false; }
+}
 function toggleSenha(){senhaVisivel=!senhaVisivel; const inp=document.getElementById('senhaInput'); const btn=document.getElementById('eyeBtn'); inp.type=senhaVisivel?'text':'password'; btn.innerText=senhaVisivel?'🙈':'👁️';}
 function openLogin(){document.getElementById('loginModal').classList.remove('hidden'); setTimeout(()=>document.getElementById('senhaInput').focus(),150);}
 function closeLogin(){document.getElementById('loginModal').classList.add('hidden'); document.getElementById('senhaInput').value=''; document.getElementById('loginErro').classList.add('hidden'); senhaVisivel=false; document.getElementById('senhaInput').type='password'; document.getElementById('eyeBtn').innerText='👁️';}
 function checkSenha(){const s=document.getElementById('senhaInput').value; if(s==='matrix2025'){localStorage.setItem('gm_logado','true'); logado=true; closeLogin(); openDev();}else{document.getElementById('loginErro').classList.remove('hidden'); document.getElementById('senhaInput').value='';}}
 document.addEventListener('DOMContentLoaded',()=>{const inp=document.getElementById('senhaInput'); if(inp){inp.addEventListener('keypress',e=>{if(e.key==='Enter') checkSenha();});}});
-function openDev(){if(!logado && localStorage.getItem('gm_logado')!=='true'){openLogin(); return;} document.getElementById('devModal').classList.remove('hidden'); const leads=JSON.parse(localStorage.getItem('gm_leads')||'[]'); document.getElementById('statLeads').innerText=leads.length; const container=document.getElementById('lista-leads-dev'); const empty=document.getElementById('emptyLeads'); if(leads.length===0){container.innerHTML=''; empty.classList.remove('hidden');}else{empty.classList.add('hidden'); container.innerHTML=leads.map((l,i)=>`<div class="bg-[#f6f1eb] border border-black/5 rounded-[14px] p-3 flex justify-between gap-3"><div class="flex-1 min-w-0"><div class="flex items-center gap-2"><p class="font-black text-[12px] truncate">${l.nome}</p><span class="text-[8px] font-black bg-black text-white px-2 py-0.5 rounded-full">${l.serv}</span></div><p class="text-[10px] text-black/50 mt-1 truncate">📍 ${l.bairro||'Sem bairro'} • ${l.area} • ${l.data}</p></div><button onclick="apagarLead(${i})" class="w-7 h-7 bg-white border border-black/10 rounded-full text-[10px] flex-shrink-0">✕</button></div>`).join('');}}
+function openDev(){if(!logado && localStorage.getItem('gm_logado')!=='true'){openLogin(); return;} document.getElementById('devModal').classList.remove('hidden'); if(window.renderLeadsAdmin) window.renderLeadsAdmin();}
 function closeDev(){document.getElementById('devModal').classList.add('hidden');}
 function logout(){localStorage.setItem('gm_logado','false'); logado=false; closeDev();}
-function renderDevProdutos(lista){document.getElementById('dev-lista-produtos').innerHTML=lista.map(p=>`<div class="bg-[#f6f1eb] border border-black/5 rounded-[14px] p-2.5 flex gap-3 items-center"><img src="${p.foto}" class="w-12 h-12 object-cover rounded-[10px]"><div class="flex-1 min-w-0"><p class="font-black text-[12px] truncate">${p.nome}</p><p class="text-[10px] text-black/50">${p.badge} • ${p.desc}</p></div><div class="w-2 h-2 bg-green-500 rounded-full"></div></div>`).join('');}
-function resetPara3Produtos(){localStorage.setItem('gm_produtos',JSON.stringify(PRODUTOS_3)); renderProdutos(); alert('Resetado para padrão!');}
-function limparLeads(){if(confirm('Apagar todos os leads?')){localStorage.setItem('gm_leads','[]'); openDev();}}
-function apagarLead(i){let leads=JSON.parse(localStorage.getItem('gm_leads')||'[]'); leads.splice(i,1); localStorage.setItem('gm_leads',JSON.stringify(leads)); openDev();}
+function renderDevProdutos(lista){const el=document.getElementById('dev-lista-produtos'); if(!el) return; el.innerHTML=lista.map(p=>`<div class="bg-[#f6f1eb] border border-black/5 rounded-[14px] p-2.5 flex gap-3 items-center"><img src="${p.foto}" class="w-12 h-12 object-cover rounded-[10px]"><div class="flex-1 min-w-0"><p class="font-black text-[12px] truncate">${p.nome}</p><p class="text-[10px] text-black/50">${p.badge} • ${p.desc}</p></div><div class="w-2 h-2 bg-green-500 rounded-full"></div></div>`).join('');}
+function resetPara3Produtos(){localStorage.setItem('gm_produtos',JSON.stringify(PRODUTOS_3)); renderProdutos(); alert('Resetado!');}
 setTipo(tipo); setUnidade(unidade); renderComodos(); renderProdutos();
 </script>
+<div id="loginModal" class="hidden fixed inset-0 z-[1000] bg-[#0a0a0a]/90 backdrop-blur-xl flex items-center justify-center p-5"><div class="bg-white rounded-[28px] w-full max-w-[380px] overflow-hidden"><div class="bg-black p-7 text-center relative"><button onclick="closeLogin()" class="absolute top-4 right-4 w-8 h-8 bg-white/10 rounded-full text-white/60">✕</button><div class="w-16 h-16 bg-gradient-to-br from-[#c9a86a] to-[#8a6d3b] rounded-[18px] flex items-center justify-center mx-auto mb-4"><span class="text-[28px]">🔐</span></div><h2 class="font-title font-black text-[18px] text-white">GESSO MATRIX</h2><p class="text-[#c9a86a] font-black text-[11px] tracking-[0.2em] mt-1">PAINEL PROFISSIONAL</p></div><div class="p-6"><div class="space-y-5"><div><label class="text-[10px] font-black tracking-widest text-black/40 mb-2 block">SENHA DE ACESSO</label><div class="relative"><input id="senhaInput" type="password" placeholder="••••••••" class="w-full bg-[#f6f1eb] border-2 border-black/5 rounded-[14px] p-4 pr-12 text-[16px] font-bold focus:border-black focus:outline-none tracking-[0.3em] text-center"><button onclick="toggleSenha()" type="button" id="eyeBtn" class="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 bg-white border border-black/10 rounded-full flex items-center justify-center text-[14px]">👁️</button></div><p id="loginErro" class="hidden mt-3 text-[11px] font-black text-red-600 text-center bg-red-50 border border-red-200 rounded-[10px] p-2.5">❌ Senha incorreta.</p></div><button onclick="checkSenha()" class="w-full bg-black text-white font-black py-4 rounded-[14px] text-[13px]">ENTRAR NO PAINEL →</button></div></div></div></div>
+<div id="devModal" class="hidden fixed inset-0 z-[999] bg-[#f8f5f0] overflow-auto"><div class="min-h-screen"><div class="bg-black text-white sticky top-0 z-10"><div class="max-w-[520px] mx-auto px-5 py-5"><div class="flex justify-between items-center"><div class="flex items-center gap-3"><div class="w-10 h-10 bg-gradient-to-br from-[#c9a86a] to-[#8a6d3b] rounded-[12px] flex items-center justify-center font-black text-[14px]">GM</div><div><p class="font-title font-black text-[14px] leading-none">GESSO MATRIX</p><p class="text-[10px] text-[#c9a86a] font-black tracking-[0.15em] mt-1">ADMIN FIREBASE</p></div></div><div class="flex gap-2"><button onclick="logout()" class="bg-white/10 text-[10px] font-black px-4 py-2.5 rounded-full">SAIR</button><button onclick="closeDev()" class="w-9 h-9 bg-white/10 rounded-full flex items-center justify-center">✕</button></div></div><div class="mt-5 grid grid-cols-3 gap-2.5"><div class="bg-white/[0.06] border border-white/10 rounded-[14px] p-3"><p class="text-[9px] text-white/40 font-black tracking-widest">LEADS</p><p id="statLeads" class="font-black text-[20px] mt-1">0</p></div><div class="bg-white/[0.06] border border-white/10 rounded-[14px] p-3"><p class="text-[9px] text-white/40 font-black tracking-widest">PRODUTOS</p><p class="font-black text-[20px] mt-1">3</p></div><div class="bg-[#c9a86a]/20 border border-[#c9a86a]/30 rounded-[14px] p-3"><p class="text-[9px] text-[#c9a86a] font-black tracking-widest">STATUS</p><p id="syncStatusDev" class="font-black text-[10px] mt-1 text-[#c9a86a]">● CONECTANDO</p></div></div></div></div><div class="max-w-[520px] mx-auto p-4 pb-20 space-y-5"><div class="bg-white rounded-[22px] border border-black/5 p-4 shadow"><div class="flex justify-between items-center mb-4"><p class="font-black text-[13px]">Produtos Ativos</p><span class="text-[9px] font-black bg-black text-white px-2.5 py-1 rounded-full">3 ITENS</span></div><div id="dev-lista-produtos" class="grid gap-2.5"></div></div><div class="bg-white rounded-[22px] border border-black/5 p-4 shadow"><div class="flex justify-between items-center mb-4"><div><p class="font-black text-[13px]">Leads Salvos (Firebase)</p><p class="text-[10px] text-black/40 font-bold">☁️ Nuvem</p></div><button onclick="limparLeads()" class="text-[9px] font-black bg-red-50 text-red-600 px-3 py-2 rounded-full border border-red-200">LIMPAR</button></div><div id="lista-leads-dev" class="space-y-2.5 max-h-[600px] overflow-auto"></div><div id="emptyLeads" class="hidden text-center py-10"><p class="font-black text-[12px] text-black/30">Nenhum lead ainda</p></div></div></div></div></div>
 </body>
 </html>
